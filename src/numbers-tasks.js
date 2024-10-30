@@ -179,8 +179,9 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const factor = 10 ** pow;
+  return Math.round(num / factor) * factor;
 }
 
 /**
@@ -318,8 +319,16 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  let number = num;
+  if (number <= 0) return false;
+
+  while (number > 1) {
+    if (number % 2 !== 0) return false;
+    number /= 2;
+  }
+
+  return true;
 }
 
 /**
